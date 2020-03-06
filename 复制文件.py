@@ -4,7 +4,7 @@
 
 import os
 import shutil
-path = '/Volumes/250G存储/四维小视频/归档'
+path = 'D:\\四维彩超\\归档'
 
 
 def dirlist(path):
@@ -16,11 +16,11 @@ def dirlist(path):
             dirlist(filepath)
         else:
             if os.path.splitext(filepath)[1]=='.avi':
-                shutil.copy(filepath,'/Volumes/250G存储/四维小视频/mp4')
+                shutil.copy(filepath,'D:\\四维彩超\\mp4')
 
 
             elif os.path.splitext(filepath)[1]=='.wmv':
-                shutil.copy(filepath, '/Volumes/250G存储/四维小视频/mp4')
+                shutil.copy(filepath, 'D:\\四维彩超\\mp4')
 
 
 
