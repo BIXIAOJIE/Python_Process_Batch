@@ -4,7 +4,7 @@
 
 import os
 
-path = 'D:\\四维彩超\\归档'
+path = '/Users/cat/Documents/四维彩超/归档'
 
 
 def dirlist(path):
@@ -17,18 +17,13 @@ def dirlist(path):
         else:
             if os.path.splitext(filepath)[1]=='.avi':
                 newname = os.path.basename(os.path.abspath(os.path.dirname(filepath)))
-                newname = os.path.join(os.path.dirname(filepath),newname)
+                newname = os.path.join(os.path.dirname(filepath),os.path.basename(os.path.abspath(os.path.join(filepath, "../..")))+newname)
                 print(newname)
                 os.rename(filepath,newname+filename+'.avi')
             elif os.path.splitext(filepath)[1]=='.wmv':
                 newname = os.path.basename(os.path.abspath(os.path.dirname(os.path.dirname(filepath))))
-                newname = os.path.join(os.path.dirname(filepath), newname)
-                os.rename(filepath, newname +filename+ '.wmv')
-
-
-
-
-
+                newname = os.path.join(os.path.dirname(filepath), os.path.basename(os.path.abspath(os.path.join(filepath, "../..")))+newname)
+                os.rename(filepath, newname +filename + '.wmv')
 
 dirlist(path)
 
